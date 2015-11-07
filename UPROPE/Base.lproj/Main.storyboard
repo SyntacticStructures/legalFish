@@ -2,7 +2,13 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="fKu-bf-nem">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="Roboto-Regular.ttf">
+            <string>Roboto-Regular</string>
+        </mutableArray>
+    </customFonts>
     <scenes>
         <!--Page Item Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -46,6 +52,59 @@
             </objects>
             <point key="canvasLocation" x="23" y="761"/>
         </scene>
+        <!--Type One View Controller-->
+        <scene sceneID="Abc-X6-rRN">
+            <objects>
+                <viewController storyboardIdentifier="typeOneViewController" id="8U4-6K-hk8" customClass="TypeOneViewController" customModule="UPROPE" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Z4n-g6-F6z"/>
+                        <viewControllerLayoutGuide type="bottom" id="WKf-uE-SDX"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="UcQ-yn-WhM">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rez-I4-yEb">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="75"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8yd-mL-KCR">
+                                        <rect key="frame" x="231" y="13" width="138" height="47"/>
+                                        <animations/>
+                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="27"/>
+                                        <color key="textColor" red="0.72156862745098038" green="0.85098039215686272" blue="0.93333333333333335" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UZm-Tw-Z1c">
+                                        <rect key="frame" x="8" y="21" width="46" height="30"/>
+                                        <animations/>
+                                        <state key="normal" title="Button"/>
+                                    </button>
+                                </subviews>
+                                <animations/>
+                                <color key="backgroundColor" red="0.078431372549019607" green="0.48627450980392156" blue="0.73725490196078436" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="UZm-Tw-Z1c" firstAttribute="centerY" secondItem="rez-I4-yEb" secondAttribute="centerY" id="Ecp-hp-6ni"/>
+                                    <constraint firstItem="8yd-mL-KCR" firstAttribute="centerX" secondItem="rez-I4-yEb" secondAttribute="centerX" id="SVV-yn-vgB"/>
+                                    <constraint firstItem="8yd-mL-KCR" firstAttribute="centerY" secondItem="rez-I4-yEb" secondAttribute="centerY" id="aw9-PM-ovo"/>
+                                    <constraint firstItem="UZm-Tw-Z1c" firstAttribute="leading" secondItem="rez-I4-yEb" secondAttribute="leading" constant="8" id="tNp-6T-dlf"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="rez-I4-yEb" firstAttribute="leading" secondItem="UcQ-yn-WhM" secondAttribute="leadingMargin" constant="-20" id="lpn-OF-0r1"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="rez-I4-yEb" secondAttribute="trailing" constant="-20" id="psD-Ji-Qyl"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="titleTextOutlet" destination="8yd-mL-KCR" id="NXJ-rw-RrG"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jqt-Bv-iMb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="640" y="761"/>
+        </scene>
         <!--Page View Controller-->
         <scene sceneID="Bcc-m7-Rog">
             <objects>
@@ -71,7 +130,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q9F-e1-pIm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-761" y="290"/>
+            <point key="canvasLocation" x="-779" y="332"/>
         </scene>
     </scenes>
 </document>

@@ -30,5 +30,6 @@ class PageItemController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.titleTextOutlet.text = self.titleText
+        
     }
 }

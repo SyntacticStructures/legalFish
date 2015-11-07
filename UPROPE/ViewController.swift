@@ -16,6 +16,7 @@ class ViewController: UIViewController, UIPageViewControllerDataSource {
     var userInfoLabelCollection: [UILabel]!
     private var pageViewController: UIPageViewController?
     let titles = ["hello", "next Slide. you win"]
+    var x = 0
        // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,16 +27,15 @@ class ViewController: UIViewController, UIPageViewControllerDataSource {
     }
     //    test function
     func sendObject() {
-        
         let formParameters = formToDictionary()
-        let postURL = "http://legalvoice.azurewebsites.net/FORM"
+        let postURL = "http://legalvoice.azurewebsites.net/api/FORM"
         if NSJSONSerialization.isValidJSONObject(formParameters) {
             print("dictPoint is valid JSON")
-            
             Alamofire.request(.POST, postURL, parameters: formParameters)
-            .responseString { response in
+            .responseJSON { response in
                 let json = JSON(data: response.data!)
                 print(response)
+                print(json)
             }
         }
     }
@@ -47,7 +47,7 @@ class ViewController: UIViewController, UIPageViewControllerDataSource {
         
         if titles.count > 0 {
             let firstController = getItemController(0)!
-            var startingViewControllers = [PageItemController]()
+            var startingViewControllers = [UIViewController]()
             startingViewControllers.append(firstController)
             pageController.setViewControllers(startingViewControllers, direction: UIPageViewControllerNavigationDirection.Forward, animated: false, completion: nil)
         }
@@ -88,13 +88,21 @@ class ViewController: UIViewController, UIPageViewControllerDataSource {
         return nil
     }
     
-    private func getItemController(itemIndex: Int) -> PageItemController? {
+    private func getItemController(itemIndex: Int) -> UIViewController? {
         
         if itemIndex < titles.count {
+            if self.x == 0 {
             let pageItemController = self.storyboard!.instantiateViewControllerWithIdentifier("ItemController") as! PageItemController
             pageItemController.itemIndex = itemIndex
             pageItemController.titleText = titles[itemIndex]
+                self.x += 1
             return pageItemController
+            } else {
+                let pageItemController = self.storyboard!.instantiateViewControllerWithIdentifier("typeOneViewController") as! TypeOneViewController
+                pageItemController.itemIndex = itemIndex
+                pageItemController.titleText = titles[itemIndex]
+                return pageItemController
+            }
         }
         
         return nil
