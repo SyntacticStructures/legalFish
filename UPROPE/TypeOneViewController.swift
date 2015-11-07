@@ -14,7 +14,7 @@ class TypeOneViewController: UIViewController {
     
     
     
-    @IBOutlet weak var imageOutlet: UILabel!
+    @IBOutlet weak var imageOutlet: UIButton!
     
     @IBOutlet weak var titleTextOutlet: UILabel!
     // MARK: - Variables
@@ -36,7 +36,7 @@ class TypeOneViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 //        self.titleTextOutlet.text = self.titleText
-//        self.imageOutlet.ba
+//        self.imageOutlet.backgroundColor
         
     }
 }

@@ -74,19 +74,16 @@
                                         <color key="textColor" red="0.72156862745098038" green="0.85098039215686272" blue="0.93333333333333335" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UZm-Tw-Z1c">
-                                        <rect key="frame" x="8" y="21" width="46" height="30"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8Ag-kk-F6x">
+                                        <rect key="frame" x="26" y="13" width="56" height="54"/>
                                         <animations/>
-                                        <state key="normal" title="Button"/>
-                                    </button>
+                                    </imageView>
                                 </subviews>
                                 <animations/>
                                 <color key="backgroundColor" red="0.078431372549019607" green="0.48627450980392156" blue="0.73725490196078436" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstItem="UZm-Tw-Z1c" firstAttribute="centerY" secondItem="rez-I4-yEb" secondAttribute="centerY" id="Ecp-hp-6ni"/>
                                     <constraint firstItem="8yd-mL-KCR" firstAttribute="centerX" secondItem="rez-I4-yEb" secondAttribute="centerX" id="SVV-yn-vgB"/>
                                     <constraint firstItem="8yd-mL-KCR" firstAttribute="centerY" secondItem="rez-I4-yEb" secondAttribute="centerY" id="aw9-PM-ovo"/>
-                                    <constraint firstItem="UZm-Tw-Z1c" firstAttribute="leading" secondItem="rez-I4-yEb" secondAttribute="leading" constant="8" id="tNp-6T-dlf"/>
                                 </constraints>
                             </view>
                         </subviews>
