@@ -20,6 +20,25 @@ class ViewController: UIViewController, UIPageViewControllerDataSource {
         super.viewDidLoad()
         createPageViewController()
         setupPageControl()
+        //        temporary to send a json example
+        self.sendObject()
+    }
+    //    test function
+    func sendObject() {
+        let respondent = Party(firstName: "first", lastName: "last", birthDate: NSDate(), lastKnownState: "WA", lastKnownCounty: "King" , partyType: "respondet" )
+        let petitioner = Party(firstName: "firstTwo", lastName: "lastTwo", birthDate: NSDate(), lastKnownState: "OR", lastKnownCounty: "Clamath", partyType: "petitioner")
+        
+        let form = Form(respondent: respondent, petitioner: petitioner, dateMarried: NSDate(), cityMarried: "Seattle", stateMarried: "WA", separation: nil, children: nil)
+        let requestString = "https://legalvoice.azurewebsites.net/FORM"
+        
+        let objectToPass = ["form":form]
+        
+        JSON
+        
+        Alamofire.request(.POST, requestString, parameters: objectToPass, encoding: .JSON)
+            .responseJSON { response in
+                
+        }
     }
     
     private func createPageViewController() {
