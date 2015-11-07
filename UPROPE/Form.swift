@@ -7,8 +7,11 @@
 //
 
 import Foundation
+import UIKit
+import 
 
-class Form {
+
+class Form: Mappable {
     
     var respondent: Party
     var petitioner: Party
@@ -86,4 +89,5 @@ class Child {
     }
 
 }
+
 

@@ -2,7 +2,8 @@ source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '8.0'
 use_frameworks!
 pod 'Alamofire'
-
+pod 'FontAwesome.swift'
+pod 'ObjectMapper', '~> 1.0'
 target ‘UPROPE’ do
     pod 'SwiftyJSON', :git => 'https://github.com/SwiftyJSON/SwiftyJSON.git'
 end

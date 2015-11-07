@@ -85,9 +85,13 @@ strip_invalid_archs() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-UPROPE/Alamofire.framework"
+  install_framework "Pods-UPROPE/FontAwesome_swift.framework"
+  install_framework "Pods-UPROPE/ObjectMapper.framework"
   install_framework "Pods-UPROPE/SwiftyJSON.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-UPROPE/Alamofire.framework"
+  install_framework "Pods-UPROPE/FontAwesome_swift.framework"
+  install_framework "Pods-UPROPE/ObjectMapper.framework"
   install_framework "Pods-UPROPE/SwiftyJSON.framework"
 fi

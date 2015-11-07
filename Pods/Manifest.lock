@@ -1,9 +1,13 @@
 PODS:
   - Alamofire (3.0.0)
+  - FontAwesome.swift (0.6.2)
+  - ObjectMapper (1.0.1)
   - SwiftyJSON (2.3.0)
 
 DEPENDENCIES:
   - Alamofire
+  - FontAwesome.swift
+  - ObjectMapper (~> 1.0)
   - SwiftyJSON (from `https://github.com/SwiftyJSON/SwiftyJSON.git`)
 
 EXTERNAL SOURCES:
@@ -17,6 +21,8 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   Alamofire: b61782387f81bcc538a0284cf2bb5d7995cd0a80
+  FontAwesome.swift: d40ac0a660f079c77945bab632ca20bf46ddc1ac
+  ObjectMapper: 98524bac0dca46c6b3d5ee02cd410fc700ec6ce2
   SwiftyJSON: cacfe0373d584585716bd1d43202c24cc66afd65
 
 COCOAPODS: 0.39.0

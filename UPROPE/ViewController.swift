@@ -25,20 +25,44 @@ class ViewController: UIViewController, UIPageViewControllerDataSource {
     }
     //    test function
     func sendObject() {
-        let respondent = Party(firstName: "first", lastName: "last", birthDate: NSDate(), lastKnownState: "WA", lastKnownCounty: "King" , partyType: "respondet" )
+        let respondent = Party(firstName: "first", lastName: "last", birthDate: NSDate(), lastKnownState: "WA", lastKnownCounty: "King" , partyType: "respondent" )
+        let respondentJSON = [
+        ]
         let petitioner = Party(firstName: "firstTwo", lastName: "lastTwo", birthDate: NSDate(), lastKnownState: "OR", lastKnownCounty: "Clamath", partyType: "petitioner")
         
         let form = Form(respondent: respondent, petitioner: petitioner, dateMarried: NSDate(), cityMarried: "Seattle", stateMarried: "WA", separation: nil, children: nil)
-        let requestString = "https://legalvoice.azurewebsites.net/FORM"
         
-        let objectToPass = ["form":form]
+        var respondentState = String()
         
-        
-        Alamofire.request(.POST, requestString, parameters: objectToPass, encoding: .JSON)
-            .responseJSON { response in
-                print(response)
-                print(response.data)
+//        if respondent.lastKnownState == nil {
+//            respondentState = respondent.lastKnownState
+//        } else {
+//            respondent
+//        }
+//        let formJSON: [String:AnyObject[String: AnyObject] = [
+//            "respondent": nil,
+//            "x": ["d": nil]
+//            //            "petitioner": [
+////                "firstName": respondent.firstName as! String,
+////                "lastName": respondent.lastName as! String,
+////                "lastKnownState": respondent.lastKnownState as! String,
+////                "lastKnownCounty": String(respondent.lastKnownCounty),
+////                "partyType": String(respondent.partyType)
+////            ],
+////            "dateMarried": String(form.dateMarried)
+//        ]
+        if NSJSONSerialization.isValidJSONObject(form) {
+            print("dictPoint is valid JSON")
+            
+            // Do your Alamofire requests
+            
         }
+        
+//        Alamofire.request(.POST, requestString, parameters: objectToPass, encoding: .JSON)
+//            .responseJSON { response in
+//                print(response)
+//                print(response.data)
+//        }
     }
     
     private func createPageViewController() {

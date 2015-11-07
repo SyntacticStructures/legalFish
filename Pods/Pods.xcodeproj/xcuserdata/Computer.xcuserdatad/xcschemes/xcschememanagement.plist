@@ -9,6 +9,21 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>FontAwesome.swift-FontAwesome.swift.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>FontAwesome.swift.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>ObjectMapper.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-UPROPE.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -32,17 +47,32 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>57CFC4DF5A94826729A3A532FC59EE52</key>
+		<key>613E6724D0EF14CE5BE0B039C241D9F6</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6B12F6DA689022AB8E775BAAC3A745A1</key>
+		<key>6D9EDCF48A5AA1A0B1FB393CB904CF6F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6B9B0CD1654070323EFCD03DD1833367</key>
+		<key>744D8936F538391EE0E1CD29AC2DAC87</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B4BC3B07380935126BEAA67E25606393</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>CF74D57FD9063D2C5572D5F20F5197AC</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E82421CBEE4F9A6C8D5D9FEC459CE24A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
