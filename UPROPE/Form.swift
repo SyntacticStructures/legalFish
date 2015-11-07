@@ -7,11 +7,9 @@
 //
 
 import Foundation
-import UIKit
-import
 
-
-class Form: Mappable {
+class Form {
+    
     
     var respondent: Party
     var petitioner: Party
@@ -45,7 +43,7 @@ class Separation {
     var agreed: Bool?
     var other: String?
     
-    init(date: NSDate, moved: Bool?, divided: Bool?, filed: Bool?, agreed: Bool?, other: String?) {
+    init(date: NSDate, moved: Bool, divided: Bool, filed: Bool, agreed: Bool, other: String) {
         self.date = date
         self.moved = moved
         self.divided = divided
@@ -59,8 +57,8 @@ class Party {
     var firstName: String
     var lastName: String
     var birthDate: NSDate
-    var lastKnownState: String?
-    var lastKnownCounty: String?
+    var lastKnownState: String
+    var lastKnownCounty: String
     var partyType: String
     
     init(firstName: String, lastName: String, birthDate: NSDate, lastKnownState: String, lastKnownCounty: String, partyType: String) {

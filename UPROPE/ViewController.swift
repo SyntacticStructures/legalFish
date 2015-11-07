@@ -8,11 +8,12 @@
 
 //temporarily need to parse through html page to get info. This will not be needed when we json from backend
 import UIKit
-var userInfoLabelCollection: [UILabel]!
 import Alamofire
 import SwiftyJSON
+import ObjectMapper
 
 class ViewController: UIViewController, UIPageViewControllerDataSource {
+    var userInfoLabelCollection: [UILabel]!
     private var pageViewController: UIPageViewController?
     let titles = ["hello", "next Slide. you win"]
        // MARK: - View Lifecycle
@@ -20,49 +21,23 @@ class ViewController: UIViewController, UIPageViewControllerDataSource {
         super.viewDidLoad()
         createPageViewController()
         setupPageControl()
+        sendObject()
         //        temporary to send a json example
-        self.sendObject()
     }
     //    test function
     func sendObject() {
-        let respondent = Party(firstName: "first", lastName: "last", birthDate: NSDate(), lastKnownState: "WA", lastKnownCounty: "King" , partyType: "respondent" )
-        let respondentJSON = [
-        ]
-        let petitioner = Party(firstName: "firstTwo", lastName: "lastTwo", birthDate: NSDate(), lastKnownState: "OR", lastKnownCounty: "Clamath", partyType: "petitioner")
         
-        let form = Form(respondent: respondent, petitioner: petitioner, dateMarried: NSDate(), cityMarried: "Seattle", stateMarried: "WA", separation: nil, children: nil)
-        
-        var respondentState = String()
-        
-//        if respondent.lastKnownState == nil {
-//            respondentState = respondent.lastKnownState
-//        } else {
-//            respondent
-//        }
-//        let formJSON: [String:AnyObject[String: AnyObject] = [
-//            "respondent": nil,
-//            "x": ["d": nil]
-//            //            "petitioner": [
-////                "firstName": respondent.firstName as! String,
-////                "lastName": respondent.lastName as! String,
-////                "lastKnownState": respondent.lastKnownState as! String,
-////                "lastKnownCounty": String(respondent.lastKnownCounty),
-////                "partyType": String(respondent.partyType)
-////            ],
-////            "dateMarried": String(form.dateMarried)
-//        ]
-        if NSJSONSerialization.isValidJSONObject(form) {
+        let formParameters = formToDictionary()
+        let postURL = "http://legalvoice.azurewebsites.net/FORM"
+        if NSJSONSerialization.isValidJSONObject(formParameters) {
             print("dictPoint is valid JSON")
             
-            // Do your Alamofire requests
-            
+            Alamofire.request(.POST, postURL, parameters: formParameters)
+            .responseString { response in
+                let json = JSON(data: response.data!)
+                print(response)
+            }
         }
-        
-//        Alamofire.request(.POST, requestString, parameters: objectToPass, encoding: .JSON)
-//            .responseJSON { response in
-//                print(response)
-//                print(response.data)
-//        }
     }
     
     private func createPageViewController() {
@@ -124,5 +99,39 @@ class ViewController: UIViewController, UIPageViewControllerDataSource {
         
         return nil
     }
+    
+    class LocationPoint {
+        var x: Double
+        var y: Double
+        var orientation: Double
+        
+        init(x: Double, y: Double, orientation: Double) {
+            self.x = x
+            self.y = y
+            self.orientation = orientation
+        }
+    }
+    
+    
+    func formToDictionary() -> [String: AnyObject] {
+        let petitioner = Party(firstName: "josn", lastName: "sdf", birthDate: NSDate(), lastKnownState: "WA", lastKnownCounty: "King", partyType: "petitioner")
+        let form = Form(respondent: petitioner, petitioner: petitioner, dateMarried: NSDate(), cityMarried: "Springfield", stateMarried: "Arizona", separation: nil, children: nil)
+        let petitionerOne = [
+            "firstName": String(petitioner.firstName),
+            "lastName": String(petitioner.lastName),
+            "birthDate": String(petitioner.birthDate),
+            "lastKnownState": String(petitioner.lastKnownState),
+            "lastKnownCounty": String(petitioner.lastKnownCounty)
+        ]
+        return [
+            "respondent": petitionerOne,
+            "petitioner": petitionerOne,
+            "dateMarried": String(form.dateMarried),
+            "cityMarried": form.cityMarried,
+            "stateMarried": form.stateMarried,
+            "separation": "lsdkfj",
+            "children": "lsakjdf"
+        ]
+    }
+    
 }
-
