@@ -33,11 +33,11 @@ class ViewController: UIViewController, UIPageViewControllerDataSource {
         
         let objectToPass = ["form":form]
         
-        JSON
         
         Alamofire.request(.POST, requestString, parameters: objectToPass, encoding: .JSON)
             .responseJSON { response in
-                
+                print(response)
+                print(response.data)
         }
     }
     
