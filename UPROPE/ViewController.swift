@@ -122,22 +122,61 @@ class ViewController: UIViewController, UIPageViewControllerDataSource {
     
     
     func formToDictionary() -> [String: AnyObject] {
+        
         let petitioner = Party(firstName: "josn", lastName: "sdf", birthDate: NSDate(), lastKnownState: "WA", lastKnownCounty: "King", partyType: "petitioner")
-        let petitionerOne = [
+        let respondent = Party(firstName: "joe", lastName: "sdf", birthDate: NSDate(), lastKnownState: "WA", lastKnownCounty: "King", partyType: "respondent")
+
+//        var children = [Child]()
+//        var childrenMap = [NSDictionary]()
+//
+//        let childOne = Child(firstName: "Tim", lastName: "sdf", age: 10, legalParents: ["respondent","petitioner"])
+//        let childTwo = Child(firstName: "Sara", lastName: "sdf", age: 13, legalParents: ["petitioner"])
+//        let childThree = Child(firstName: "Sam", lastName: "sdf", age: 16, legalParents: ["respondent"])
+//        let childFour = Child(firstName: "Tess", lastName: "sdf", age: 9, legalParents: ["respondent","petitioner"])
+//
+//        children.append(childOne)
+//        children.append(childTwo)
+//        children.append(childThree)
+//        children.append(childFour)
+
+        let form = Form(respondent: petitioner, petitioner: petitioner, dateMarried: NSDate(), cityMarried: "Springfield", stateMarried: "Arizona", brokenMarriage:  true, separation: nil, children: nil)
+
+        let petitionerMap = [
             "firstName": String(petitioner.firstName),
             "lastName": String(petitioner.lastName),
             "birthDate": String(petitioner.birthDate),
             "lastKnownState": String(petitioner.lastKnownState),
             "lastKnownCounty": String(petitioner.lastKnownCounty)
         ]
+
+        let respondentMap = [
+            "firstName": String(respondent.firstName),
+            "lastName": String(respondent.lastName),
+            "birthDate": String(respondent.birthDate),
+            "lastKnownState": String(respondent.lastKnownState),
+            "lastKnownCounty": String(respondent.lastKnownCounty)
+        ]
+
+//        for child in children
+//        {
+//            let childMap = [
+//                "firstname": child.firstName,
+//                "lastname": child.lastName,
+//                "age": child.age,
+//                "legalParents": child.legalParents
+//            ]
+//            childrenMap.append(childMap)
+//        }
+
         return [
-            "respondent": petitionerOne,
-            "petitioner": petitionerOne,
+            "respondent": petitionerMap,
+            "petitioner": respondentMap,
             "dateMarried": String(form.dateMarried),
             "cityMarried": form.cityMarried,
             "stateMarried": form.stateMarried,
-            "separation": "lsdkfj",
-            "children": "lsakjdf"
+            "brokenMarriage": String(form.brokenMarriage),
+            "separation": "",
+            "children": ""
         ]
     }
     
