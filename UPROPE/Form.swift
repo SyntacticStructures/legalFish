@@ -16,17 +16,19 @@ class Form {
     var dateMarried: NSDate
     var cityMarried:String
     var stateMarried: String
+    var brokenMarriage: Bool
     var separation: Separation?
     var children: [Child]?
     
     
-    init(respondent: Party, petitioner: Party, dateMarried: NSDate, cityMarried: String, stateMarried: String, separation: Separation?, children: [Child]?) {
+    init(respondent: Party, petitioner: Party, dateMarried: NSDate, cityMarried: String, stateMarried: String, brokenMarriage: Bool, separation: Separation?, children: [Child]?) {
         
         self.respondent = respondent
         self.petitioner = petitioner
         self.dateMarried = dateMarried
         self.cityMarried = cityMarried
         self.stateMarried = stateMarried
+        self.brokenMarriage = brokenMarriage
         self.separation = separation
         self.children = children
         
@@ -79,13 +81,56 @@ class Child {
     var legalParents: [Party]
     
     init(firstName: String, lastName: String, age: Int, legalParents: [Party]) {
-        
         self.firstName = firstName
         self.lastName = lastName
         self.age = age
         self.legalParents = legalParents
     }
+}
+
+class Jurisdiction {
+
+    var respLivesWA: Bool?
+    var bothLivedWAPetRemains: Bool?
+    var petMilitary: Bool?
+    var petAndRepConceiveChildWA: Bool?
+    var otherJurisReason: String?
+
+    init(respLivesWA: Bool?, bothLivedWAPetRemains: Bool?, petMilitary: Bool?, petAndRepConceiveChildWA: Bool?, otherJurisReason: String?) {
+        self.respLivesWA = respLivesWA
+        self.bothLivedWAPetRemains = bothLivedWAPetRemains
+        self.petMilitary = petMilitary
+        self.petAndRepConceiveChildWA = petAndRepConceiveChildWA
+        self.otherJurisReason = otherJurisReason
+    }
 
 }
 
+class Property {
+    
+    var petitionProperty: [String]
+    var respondentProperty: [String]
+    var otherProperty: [String]
+    
+    init(petitionProperty: [String]?,respondentProperty: [String]?,otherProperty: [String]?) {
+        if let petitionProperty = petitionProperty
+        {
+            self.petitionProperty = petitionProperty
+        } else {
+            self.petitionProperty = []
+        }
+        if let respondentProperty = respondentProperty
+        {
+            self.respondentProperty = respondentProperty
+        } else {
+            self.respondentProperty = []
+        }
 
+        if let otherProperty = otherProperty
+        {
+            self.otherProperty = otherProperty
+        } else {
+            self.otherProperty = []
+        }
+    }
+}

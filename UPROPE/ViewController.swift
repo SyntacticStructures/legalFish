@@ -123,7 +123,6 @@ class ViewController: UIViewController, UIPageViewControllerDataSource {
     
     func formToDictionary() -> [String: AnyObject] {
         let petitioner = Party(firstName: "josn", lastName: "sdf", birthDate: NSDate(), lastKnownState: "WA", lastKnownCounty: "King", partyType: "petitioner")
-        let form = Form(respondent: petitioner, petitioner: petitioner, dateMarried: NSDate(), cityMarried: "Springfield", stateMarried: "Arizona", separation: nil, children: nil)
         let petitionerOne = [
             "firstName": String(petitioner.firstName),
             "lastName": String(petitioner.lastName),
