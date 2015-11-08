@@ -32,4 +32,7 @@ class PageItemController: UIViewController {
         self.titleTextOutlet.text = self.titleText
         
     }
+    override func prefersStatusBarHidden() -> Bool {
+        return true;
+    }
 }

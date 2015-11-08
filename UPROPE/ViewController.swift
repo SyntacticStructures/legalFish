@@ -15,7 +15,7 @@ import ObjectMapper
 class ViewController: UIViewController, UIPageViewControllerDataSource {
     var userInfoLabelCollection: [UILabel]!
     private var pageViewController: UIPageViewController?
-    let titles = ["hello", "next Slide. you win"]
+    let titles = ["hello", "next Slide. you win", "third slide", "fourth"]
     var x = 0
        // MARK: - View Lifecycle
     override func viewDidLoad() {
@@ -24,6 +24,9 @@ class ViewController: UIViewController, UIPageViewControllerDataSource {
         setupPageControl()
         sendObject()
         //        temporary to send a json example
+    }
+    override func prefersStatusBarHidden() -> Bool {
+        return true;
     }
     //    test function
     func sendObject() {
@@ -67,23 +70,38 @@ class ViewController: UIViewController, UIPageViewControllerDataSource {
     
     
     func pageViewController(pageViewController: UIPageViewController, viewControllerBeforeViewController viewController: UIViewController) -> UIViewController? {
-        
-        let itemController = viewController as! PageItemController
-        
-        if itemController.itemIndex > 0 {
-            return getItemController(itemController.itemIndex-1)
+        if self.x != 1{
+            
+            if let itemController = viewController as? PageItemController {
+                if itemController.itemIndex-1 > titles.count {
+                    return getItemController(itemController.itemIndex-1)
+                }
+            } else {
+        }
+            if let itemController = viewController as? TypeOneViewController {
+                if itemController.itemIndex - 1 > titles.count {
+                    return getItemController(itemController.itemIndex-1)
+                }
+            }
         }
         
         return nil
     }
     
     func pageViewController(pageViewController: UIPageViewController, viewControllerAfterViewController viewController: UIViewController) -> UIViewController? {
-        
-        let itemController = viewController as! PageItemController
-        
-        if itemController.itemIndex+1 < titles.count {
-            return getItemController(itemController.itemIndex+1)
+        if self.x != 0 {
+        if let itemController = viewController as? PageItemController {
+            if itemController.itemIndex+1 < titles.count {
+                return getItemController(itemController.itemIndex+1)
+            }
         }
+        }else {
+            if let itemController = viewController as? TypeOneViewController {
+                return getItemController(itemController.itemIndex+1)
+            }
+        }
+        
+        
         
         return nil
     }
@@ -97,10 +115,18 @@ class ViewController: UIViewController, UIPageViewControllerDataSource {
             pageItemController.titleText = titles[itemIndex]
                 self.x += 1
             return pageItemController
-            } else {
+            } else if self.x == 1 {
                 let pageItemController = self.storyboard!.instantiateViewControllerWithIdentifier("typeOneViewController") as! TypeOneViewController
                 pageItemController.itemIndex = itemIndex
+                print("itemindex", itemIndex)
+                pageItemController.titleText = self.titles[itemIndex]
+                return pageItemController
+                self.x += 1
+            } else {
+                let pageItemController = self.storyboard!.instantiateViewControllerWithIdentifier("ItemController") as! PageItemController
+                pageItemController.itemIndex = itemIndex
                 pageItemController.titleText = titles[itemIndex]
+                self.x += 1
                 return pageItemController
             }
         }
