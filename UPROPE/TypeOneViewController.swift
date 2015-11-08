@@ -12,6 +12,9 @@ import FontAwesome_swift
 
 class TypeOneViewController: UIViewController {
     
+    @IBOutlet var labelsHideForever: [UILabel]!
+
+    @IBOutlet var buttonsAlwaysHide: [UIButton]!
     @IBOutlet var buttonsToHide: [UIButton]!
    
 
@@ -60,9 +63,15 @@ class TypeOneViewController: UIViewController {
 //        self.scrollView.directionalLockEnabled = false
         self.hideAll()
         for button in buttonsToHide {
-            button.titleLabel?.font = UIFont.fontAwesomeOfSize(25)
+            button.titleLabel?.font = UIFont.fontAwesomeOfSize(30)
             button.setTitle(String.fontAwesomeIconWithName(.SquareO), forState: .Normal)
             button.setTitleColor(UIColor.blackColor(), forState: .Normal)
+        }
+        for button in buttonsAlwaysHide {
+            button.hidden = true
+        }
+        for label in labelsHideForever {
+            label.hidden = true
         }
         
         //        self.titleTextOutlet.text = self.titleText
@@ -98,7 +107,7 @@ class TypeOneViewController: UIViewController {
     
     @IBAction func checkTapped(sender: AnyObject) {
         for button in buttonsToHide {
-            if sender.tag == button.tag {
+            if sender.tag == button.tag { 
                 button.titleLabel?.font = UIFont.fontAwesomeOfSize(30)
                 button.setTitle(String.fontAwesomeIconWithName(.CheckSquareO), forState: .Normal)
                 button.setTitleColor(UIColor.blackColor(), forState: .Normal)
